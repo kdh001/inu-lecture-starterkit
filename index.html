@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INU Starter — Home</title>
+    <meta
+      name="description"
+      content="INU 강의용 github.io 정적 웹서비스 스타터킷"
+    />
+
+    <!-- Inter : 비-Apple 플랫폼 SF Pro 대체 폰트 (DESIGN.md 권고) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 스타일 : tokens → base → components 순서 (FOUC 방지용 정적 link) -->
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- main.js 먼저(INU.bindNav 정의) → layout.js (nav/footer 주입) -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/layout.js"></script>
+  </head>
+  <body>
+    <!-- 공통 nav 주입 위치 (layout.js) -->
+    <header id="site-nav"></header>
+
+    <main>
+      <!-- 히어로 : 라이트 타일 -->
+      <section class="product-tile product-tile--light">
+        <div class="product-tile__inner">
+          <h1 class="t-hero-display">강의 프로젝트를 여기서 시작하세요</h1>
+          <p class="t-lead">
+            순수 HTML · CSS · JS. 빌드 없이 github.io 에 바로 배포됩니다.
+          </p>
+          <div class="product-tile__cta">
+            <a class="btn-primary" href="components.html">컴포넌트 보기</a>
+            <a class="btn-secondary-pill" href="about.html">소개</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 다크 타일 : 색 변화가 곧 섹션 구분선 -->
+      <section class="product-tile product-tile--dark">
+        <div class="product-tile__inner">
+          <h2 class="t-display-lg">DESIGN.md 기반 디자인 시스템</h2>
+          <p class="t-lead">
+            색 · 타이포 · 간격 · 라운드가 토큰으로 정의되어 일관됩니다.
+          </p>
+          <div class="product-tile__cta">
+            <a class="btn-primary" href="components.html">토큰 활용법</a>
+            <a class="text-link text-link--on-dark" href="about.html"
+              >자세히 보기 ›</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 파치먼트 타일 : 연속 라이트 타일을 끊는 off-white -->
+      <section class="product-tile product-tile--parchment">
+        <div class="product-tile__inner">
+          <h2 class="t-display-lg">반응형 · 접근성 기본 제공</h2>
+          <p class="t-lead">
+            모바일 햄버거 네비게이션과 키보드 포커스 링이 포함됩니다.
+          </p>
+          <div class="product-tile__cta">
+            <a class="btn-primary" href="components.html">시작하기</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 공통 footer 주입 위치 (layout.js) -->
+    <footer id="site-footer"></footer>
+  </body>
+</html>

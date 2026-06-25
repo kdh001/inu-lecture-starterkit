@@ -1,0 +1,391 @@
+/* ============================================================
+ * components.css — DESIGN.md `components:` 스펙의 클래스 구현
+ * ------------------------------------------------------------
+ * 규칙(DESIGN.md Do's & Don'ts):
+ *  - 인터랙션 액센트는 Action Blue(--color-primary) 단 하나.
+ *  - 그림자(--shadow-product)는 제품 이미지에만. 카드/버튼/텍스트 금지.
+ *  - full-bleed 타일은 라운드 없음. 색 변화가 곧 구분선.
+ *  - active(누름) 상태는 transform: scale(0.95) 공통. hover는 정의하지 않음.
+ * ============================================================ */
+
+/* ============================================================
+ * 1. Top navigation
+ * ============================================================ */
+
+/* global-nav : 페이지 상단 고정, 초박형 블랙 바 */
+.global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  height: var(--nav-height);
+  padding-inline: var(--space-lg);
+  background-color: var(--color-surface-black);
+  color: var(--color-on-dark);
+}
+
+.global-nav__brand {
+  font-family: var(--font-display);
+  font-size: var(--fs-tagline);
+  font-weight: var(--fw-tagline);
+  letter-spacing: var(--ls-nav-link);
+  color: var(--color-on-dark);
+}
+
+.global-nav__links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.global-nav__link {
+  font-size: var(--fs-nav-link);
+  font-weight: var(--fw-nav-link);
+  line-height: var(--lh-nav-link);
+  letter-spacing: var(--ls-nav-link);
+  color: var(--color-on-dark);
+  opacity: 0.85;
+}
+
+.global-nav__link[aria-current="page"] {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.global-nav__spacer {
+  margin-left: auto;
+}
+
+/* 모바일 햄버거 토글 — 데스크탑에서는 숨김 */
+.global-nav__toggle {
+  display: none;
+  margin-left: auto;
+  width: var(--nav-height);
+  height: var(--nav-height);
+  background: transparent;
+  border: 0;
+  color: var(--color-on-dark);
+  font-size: 18px;
+}
+
+/* sub-nav : 글로벌 nav 아래 frosted 카테고리 스트립 */
+.sub-nav {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  height: var(--subnav-height);
+  padding-inline: var(--space-lg);
+  background-color: color-mix(in srgb, var(--color-canvas-parchment) 80%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  color: var(--color-ink);
+}
+
+.sub-nav__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-tagline);
+  font-weight: var(--fw-tagline);
+  letter-spacing: var(--ls-tagline);
+}
+
+.sub-nav__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* ============================================================
+ * 2. Buttons
+ * ============================================================ */
+
+/* button-primary : 시그니처 블루 pill */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--fs-body);
+  line-height: 1;
+  border: 0;
+  border-radius: var(--radius-pill);
+  transition: transform 0.1s ease;
+}
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+/* button-secondary-pill : "ghost pill" */
+.btn-secondary-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-size: var(--fs-body);
+  line-height: 1;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: transform 0.1s ease;
+}
+.btn-secondary-pill:active {
+  transform: scale(0.95);
+}
+
+/* button-dark-utility : 글로벌 nav 액션 (Sign In, Bag) */
+.btn-dark-utility {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+  background-color: var(--color-ink);
+  color: var(--color-on-dark);
+  font-size: var(--fs-button-utility);
+  font-weight: var(--fw-button-utility);
+  letter-spacing: var(--ls-button-utility);
+  line-height: 1;
+  border: 0;
+  border-radius: var(--radius-sm);
+  transition: transform 0.1s ease;
+}
+.btn-dark-utility:active {
+  transform: scale(0.95);
+}
+
+/* button-store-hero : 더 큰 스토어 CTA (rare weight 300) */
+.btn-store-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--fs-button-large);
+  font-weight: var(--fw-button-large);
+  line-height: 1;
+  border: 0;
+  border-radius: var(--radius-pill);
+  transition: transform 0.1s ease;
+}
+.btn-store-hero:active {
+  transform: scale(0.95);
+}
+
+/* text-link / text-link-on-dark */
+.text-link {
+  color: var(--color-primary);
+  font-size: var(--fs-body);
+}
+.text-link--on-dark {
+  color: var(--color-primary-on-dark);
+}
+
+/* ============================================================
+ * 3. Product tiles (full-bleed, 라운드 없음)
+ * ============================================================ */
+
+.product-tile {
+  padding-block: var(--space-section);
+  padding-inline: var(--space-lg);
+  text-align: center;
+  border-radius: var(--radius-none);
+}
+
+.product-tile__inner {
+  max-width: var(--container-text);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.product-tile__cta {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
+}
+
+/* surface 변형 — 색 변화 자체가 섹션 구분선 */
+.product-tile--light {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+.product-tile--parchment {
+  background-color: var(--color-canvas-parchment);
+  color: var(--color-ink);
+}
+.product-tile--dark {
+  background-color: var(--color-surface-tile-1);
+  color: var(--color-on-dark);
+}
+.product-tile--dark-2 {
+  background-color: var(--color-surface-tile-2);
+  color: var(--color-on-dark);
+}
+.product-tile--dark-3 {
+  background-color: var(--color-surface-tile-3);
+  color: var(--color-on-dark);
+}
+
+/* 제품 이미지 — 시스템 유일 그림자가 적용되는 곳 */
+.product-render {
+  margin-top: var(--space-lg);
+  box-shadow: var(--shadow-product);
+}
+
+/* ============================================================
+ * 4. Cards & grids
+ * ============================================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+/* store-utility-card : 화이트 카드, hairline 보더, 라운드 lg */
+.store-utility-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.store-utility-card__media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-canvas-parchment);
+}
+
+.store-utility-card__name {
+  font-size: var(--fs-body-strong);
+  font-weight: var(--fw-body-strong);
+  letter-spacing: var(--ls-body-strong);
+}
+
+.store-utility-card__price {
+  font-size: var(--fs-body);
+  color: var(--color-ink-muted-80);
+}
+
+/* ============================================================
+ * 5. Inputs
+ * ============================================================ */
+
+.search-input {
+  width: 100%;
+  height: var(--nav-height);
+  padding: 12px 20px;
+  font-size: var(--fs-body);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+}
+
+/* ============================================================
+ * 6. Footer
+ * ============================================================ */
+
+.footer {
+  padding: 64px var(--space-lg);
+  background-color: var(--color-canvas-parchment);
+  color: var(--color-ink-muted-80);
+}
+
+.footer__inner {
+  max-width: var(--container-grid);
+  margin-inline: auto;
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.footer__heading {
+  font-size: var(--fs-caption-strong);
+  font-weight: var(--fw-caption-strong);
+  letter-spacing: var(--ls-caption-strong);
+  margin-bottom: var(--space-xs);
+}
+
+.footer__links a {
+  display: block;
+  font-size: var(--fs-fine-print);
+  line-height: 2.41;
+  color: var(--color-ink-muted-80);
+}
+
+.footer__legal {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-hairline);
+  font-size: var(--fs-fine-print);
+  color: var(--color-ink-muted-48);
+}
+
+/* ============================================================
+ * 7. Responsive (DESIGN.md breakpoints)
+ * ============================================================ */
+
+/* 태블릿 landscape 이하 : 4-col 그리드 → 2-col */
+@media (max-width: 1023px) {
+  .card-grid,
+  .footer__columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 태블릿 portrait 이하(<=833px) : nav 햄버거 collapse */
+@media (max-width: 833px) {
+  .global-nav__links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-xs) var(--space-lg);
+    background-color: var(--color-surface-black);
+  }
+  .global-nav__links.is-open {
+    display: flex;
+  }
+  .global-nav__link {
+    padding-block: var(--space-sm);
+  }
+  .global-nav__spacer {
+    display: none;
+  }
+  .global-nav__toggle {
+    display: block;
+  }
+}
+
+/* phone 이하(<=640px) : 그리드 1-col, 타일 패딩 축소 */
+@media (max-width: 640px) {
+  .card-grid,
+  .footer__columns {
+    grid-template-columns: 1fr;
+  }
+  .product-tile {
+    padding-block: var(--space-xxl);
+  }
+  .t-hero-display {
+    font-size: var(--fs-display-md);
+  }
+}

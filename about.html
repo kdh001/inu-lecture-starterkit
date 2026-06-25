@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INU Starter — About</title>
+    <meta name="description" content="스타터킷 소개 — 텍스트 중심 레이아웃 예시" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/layout.js"></script>
+  </head>
+  <body>
+    <header id="site-nav"></header>
+
+    <!-- 텍스트 중심 페이지 : ~980px 컨테이너 (DESIGN.md 환경 페이지 패턴) -->
+    <main class="container-text" style="padding-block: var(--space-section)">
+      <h1 class="t-display-md">이 스타터킷에 대하여</h1>
+      <p class="t-body" style="margin-top: var(--space-md)">
+        INU 강의 수강생이 정적 웹서비스를 빠르게 시작하고 GitHub Pages(github.io)에
+        배포할 수 있도록 만든 템플릿입니다. 프레임워크나 빌드 도구 없이 HTML · CSS ·
+        JavaScript 만으로 동작하므로, 저장소에 푸시하면 그대로 웹에 공개됩니다.
+      </p>
+
+      <h2 class="t-tagline" style="margin-top: var(--space-xl)">구성</h2>
+      <p class="t-body" style="margin-top: var(--space-sm)">
+        화면 스타일은 루트의 <code>DESIGN.md</code> 가 단일 출처입니다. 그 토큰을
+        <code>css/tokens.css</code> 의 CSS 변수로 옮겨 두었고, 모든 컴포넌트는 이
+        변수만 참조합니다. 새 색상이나 간격을 인라인으로 넣지 말고 토큰을 사용하세요.
+      </p>
+
+      <h2 class="t-tagline" style="margin-top: var(--space-xl)">다음 단계</h2>
+      <p class="t-body" style="margin-top: var(--space-sm)">
+        <a class="text-link" href="components.html">Components 페이지</a> 에서 버튼 ·
+        타일 · 카드 · 푸터 등 사용 가능한 컴포넌트를 확인하고, 마크업을 복사해
+        나만의 페이지를 구성해 보세요.
+      </p>
+    </main>
+
+    <footer id="site-footer"></footer>
+  </body>
+</html>

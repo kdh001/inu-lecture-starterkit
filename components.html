@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INU Starter — Components</title>
+    <meta name="description" content="DESIGN.md 컴포넌트 쇼케이스 — 복붙 참고용" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/layout.js"></script>
+  </head>
+  <body>
+    <header id="site-nav"></header>
+
+    <!-- sub-nav : 카테고리 스트립 예시 -->
+    <div class="sub-nav">
+      <span class="sub-nav__title">Components</span>
+      <div class="sub-nav__actions">
+        <a class="text-link" href="#buttons">Buttons</a>
+        <a class="text-link" href="#cards">Cards</a>
+        <a class="btn-primary" href="index.html">홈</a>
+      </div>
+    </div>
+
+    <main class="container-grid" style="padding-block: var(--space-section)">
+      <!-- Typography -->
+      <section style="margin-bottom: var(--space-section)">
+        <h2 class="t-display-md" style="margin-bottom: var(--space-lg)">
+          Typography
+        </h2>
+        <p class="t-hero-display">Hero display 56</p>
+        <p class="t-display-lg">Display large 40</p>
+        <p class="t-lead">Lead 28</p>
+        <p class="t-tagline">Tagline 21</p>
+        <p class="t-body">Body 17 — 본문 기본 크기입니다.</p>
+        <p class="t-caption">Caption 14</p>
+      </section>
+
+      <!-- Buttons -->
+      <section id="buttons" style="margin-bottom: var(--space-section)">
+        <h2 class="t-display-md" style="margin-bottom: var(--space-lg)">
+          Buttons
+        </h2>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            align-items: center;
+          "
+        >
+          <button class="btn-primary">Primary</button>
+          <button class="btn-secondary-pill">Secondary</button>
+          <button class="btn-dark-utility">Dark utility</button>
+          <button class="btn-store-hero">Store hero</button>
+          <a class="text-link" href="#">Text link</a>
+        </div>
+      </section>
+
+      <!-- Inputs -->
+      <section style="margin-bottom: var(--space-section)">
+        <h2 class="t-display-md" style="margin-bottom: var(--space-lg)">Input</h2>
+        <div style="max-width: 360px">
+          <label class="sr-only" for="demo-search">검색</label>
+          <input
+            id="demo-search"
+            class="search-input"
+            type="search"
+            placeholder="검색어를 입력하세요"
+          />
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section id="cards" style="margin-bottom: var(--space-section)">
+        <h2 class="t-display-md" style="margin-bottom: var(--space-lg)">
+          Cards
+        </h2>
+        <div class="card-grid">
+          <article class="store-utility-card">
+            <div class="store-utility-card__media"></div>
+            <p class="store-utility-card__name">제품 이름</p>
+            <p class="store-utility-card__price">₩1,290,000</p>
+            <a class="text-link" href="#">자세히 ›</a>
+          </article>
+          <article class="store-utility-card">
+            <div class="store-utility-card__media"></div>
+            <p class="store-utility-card__name">제품 이름</p>
+            <p class="store-utility-card__price">₩990,000</p>
+            <a class="text-link" href="#">자세히 ›</a>
+          </article>
+          <article class="store-utility-card">
+            <div class="store-utility-card__media"></div>
+            <p class="store-utility-card__name">제품 이름</p>
+            <p class="store-utility-card__price">₩590,000</p>
+            <a class="text-link" href="#">자세히 ›</a>
+          </article>
+          <article class="store-utility-card">
+            <div class="store-utility-card__media"></div>
+            <p class="store-utility-card__name">제품 이름</p>
+            <p class="store-utility-card__price">₩390,000</p>
+            <a class="text-link" href="#">자세히 ›</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Product tiles -->
+      <section>
+        <h2 class="t-display-md" style="margin-bottom: var(--space-lg)">
+          Product tiles
+        </h2>
+      </section>
+    </main>
+
+    <!-- full-bleed 타일은 container 밖에 두어 가장자리까지 채움 -->
+    <section class="product-tile product-tile--dark-2">
+      <div class="product-tile__inner">
+        <h3 class="t-display-lg">다크 타일</h3>
+        <p class="t-lead">색 변화 자체가 섹션 구분선 역할을 합니다.</p>
+      </div>
+    </section>
+    <section class="product-tile product-tile--parchment">
+      <div class="product-tile__inner">
+        <h3 class="t-display-lg">파치먼트 타일</h3>
+        <p class="t-lead">off-white 로 리듬을 만듭니다.</p>
+      </div>
+    </section>
+
+    <footer id="site-footer"></footer>
+  </body>
+</html>

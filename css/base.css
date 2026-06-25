@@ -1,0 +1,167 @@
+/* ============================================================
+ * base.css — reset, 폰트 기준, body, 타이포그래피 유틸리티
+ * ------------------------------------------------------------
+ * tokens.css 의 변수에만 의존합니다. 인라인 hex/px 금지.
+ * ============================================================ */
+
+/* --- Minimal reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* --- Typography utilities (DESIGN.md scale) ---
+ * 클래스 하나로 size/weight/line-height/letter-spacing 를 한 번에 적용. */
+.t-hero-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero-display);
+  font-weight: var(--fw-hero-display);
+  line-height: var(--lh-hero-display);
+  letter-spacing: var(--ls-hero-display);
+}
+.t-display-lg {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-lg);
+  font-weight: var(--fw-display-lg);
+  line-height: var(--lh-display-lg);
+  letter-spacing: var(--ls-display-lg);
+}
+.t-display-md {
+  font-family: var(--font-text);
+  font-size: var(--fs-display-md);
+  font-weight: var(--fw-display-md);
+  line-height: var(--lh-display-md);
+  letter-spacing: var(--ls-display-md);
+}
+.t-lead {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-lead);
+  line-height: var(--lh-lead);
+  letter-spacing: var(--ls-lead);
+}
+.t-lead-airy {
+  font-family: var(--font-text);
+  font-size: var(--fs-lead-airy);
+  font-weight: var(--fw-lead-airy);
+  line-height: var(--lh-lead-airy);
+  letter-spacing: var(--ls-lead-airy);
+}
+.t-tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-tagline);
+  font-weight: var(--fw-tagline);
+  line-height: var(--lh-tagline);
+  letter-spacing: var(--ls-tagline);
+}
+.t-body-strong {
+  font-size: var(--fs-body-strong);
+  font-weight: var(--fw-body-strong);
+  line-height: var(--lh-body-strong);
+  letter-spacing: var(--ls-body-strong);
+}
+.t-body {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+.t-caption {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-caption);
+}
+.t-caption-strong {
+  font-size: var(--fs-caption-strong);
+  font-weight: var(--fw-caption-strong);
+  line-height: var(--lh-caption-strong);
+  letter-spacing: var(--ls-caption-strong);
+}
+.t-fine-print {
+  font-size: var(--fs-fine-print);
+  font-weight: var(--fw-fine-print);
+  line-height: var(--lh-fine-print);
+  letter-spacing: var(--ls-fine-print);
+}
+
+/* --- Layout helpers --- */
+.container-text {
+  max-width: var(--container-text);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.container-grid {
+  max-width: var(--container-grid);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+/* 접근성: 키보드 포커스 가시화 (DESIGN.md focus blue) */
+:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+}
+
+/* 스크린리더 전용 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
