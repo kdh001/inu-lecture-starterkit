@@ -65,6 +65,30 @@
   border-color: var(--color-hairline);
 }
 
+/* GitHub 저장소 링크 (헤더 우측 아이콘) */
+.global-nav__github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--color-muted);
+  border: var(--hairline-w) solid transparent;
+  border-radius: var(--radius-md);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    transform 0.1s ease;
+}
+.global-nav__github:hover {
+  color: var(--color-text);
+  border-color: var(--color-hairline);
+}
+.global-nav__github:active {
+  transform: scale(0.95);
+}
+.global-nav__github-icon {
+  display: block;
+}
+
 /* 테마 토글 버튼 (다크 ↔ 라이트) */
 .global-nav__theme {
   font-family: var(--font-mono);

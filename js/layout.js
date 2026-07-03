@@ -15,7 +15,12 @@
 const SITE = {
   brandLead: "inu",
   brandTail: "starter",
+  // 헤더 우측 GitHub 아이콘이 연결될 저장소 주소
+  repoUrl: "https://github.com/kdh001/inu-lecture-starterkit",
 };
+
+// GitHub 마크(옥토캣) — 외부 요청 없이 자체 포함(인라인 SVG)
+const GITHUB_ICON = `<svg class="global-nav__github-icon" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>`;
 
 // 네비게이션 항목. href 는 상대경로(앞에 / 없이) — project-site 서브경로 배포 호환.
 const NAV_LINKS = [
@@ -60,6 +65,7 @@ function renderNav() {
     <nav class="global-nav" aria-label="주요 메뉴">
       <a class="global-nav__brand" href="index.html">${SITE.brandLead}<span class="dot">·</span>${SITE.brandTail}</a>
       <div class="global-nav__links" id="nav-links">${links}</div>
+      <a class="global-nav__github" href="${SITE.repoUrl}" target="_blank" rel="noopener" aria-label="GitHub 저장소 열기">${GITHUB_ICON}</a>
       <button class="global-nav__theme" type="button" aria-label="테마 전환"></button>
       <button class="global-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
         <span class="sr-only">메뉴 열기</span>☰
