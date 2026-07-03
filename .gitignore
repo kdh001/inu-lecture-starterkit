@@ -16,3 +16,6 @@ Thumbs.db
 # 로컬 도구 산출물 (선택)
 /node_modules
 /coverage
+
+# brainstorming visual companion
+.superpowers/
