@@ -116,6 +116,9 @@ function mountLayout() {
   if (window.INU && typeof window.INU.bindTheme === "function") {
     window.INU.bindTheme();
   }
+  if (window.INU && typeof window.INU.bindReveal === "function") {
+    window.INU.bindReveal();
+  }
 }
 
 if (document.readyState === "loading") {

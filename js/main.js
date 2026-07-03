@@ -49,3 +49,29 @@ window.INU.bindTheme = function bindTheme() {
     btn.textContent = label();
   });
 };
+
+/** .reveal 요소가 뷰포트에 들어오면 is-visible 부여 (스크롤 리빌 fade-up) */
+window.INU.bindReveal = function bindReveal() {
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
+  // IntersectionObserver 미지원/모션 최소화 시 즉시 표시
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || typeof IntersectionObserver === "undefined") {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  els.forEach((el) => io.observe(el));
+};
