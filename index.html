@@ -46,6 +46,8 @@
     <!-- main.js 먼저(INU.bindNav/bindTheme 정의) → layout.js (nav/footer 주입) -->
     <script defer src="js/main.js"></script>
     <script defer src="js/layout.js"></script>
+    <!-- 프로젝트 카드 렌더 + 상세 모달 -->
+    <script defer src="js/projects.js"></script>
   </head>
   <body>
     <!-- 공통 nav 주입 위치 (layout.js) -->
@@ -77,40 +79,10 @@
         </p>
       </section>
 
-      <!-- 대표 프로젝트 -->
+      <!-- 대표 프로젝트 (js/projects.js 가 앞 3개를 렌더) -->
       <section class="pf-section reveal" id="projects">
         <p class="t-eyebrow pf-section__eyebrow">대표 프로젝트</p>
-        <div class="card-grid">
-          <article class="card">
-            <p class="card__tag">Capstone</p>
-            <h2 class="card__title">영양제 추천 시스템</h2>
-            <p class="card__desc">생체데이터 기반 영양제 자동 디스펜싱. iOS·Firestore·ESP32를 연결한 산학캡스톤.</p>
-            <div class="tag-row">
-              <span class="tag">Swift</span><span class="tag">Firebase</span><span class="tag">ESP32</span>
-            </div>
-            <p class="card__foot">산학캡스톤디자인</p>
-          </article>
-          <article class="card">
-            <p class="card__tag">Personal</p>
-            <h2 class="card__title">auto-equity-trader</h2>
-            <p class="card__desc">키움 REST 기반 주식 자동매매 봇. 전략·백테스트 코어에 128개 테스트.</p>
-            <div class="tag-row">
-              <span class="tag">Python</span>
-            </div>
-            <p class="card__foot">개인 프로젝트</p>
-          </article>
-          <article class="card">
-            <p class="card__tag">Personal</p>
-            <h2 class="card__title">keyword-scout</h2>
-            <p class="card__desc">키워드 소싱·트렌드 분석 파이프라인. 수집부터 점수화·리포트까지 자동화.</p>
-            <div class="tag-row">
-              <span class="tag">Python</span>
-            </div>
-            <p class="card__foot">
-              <a class="text-link" href="https://github.com/kdh001/keyword-scout">GitHub →</a>
-            </p>
-          </article>
-        </div>
+        <div class="card-grid" id="featured-grid"></div>
         <p style="margin-top: var(--space-8)">
           <a class="text-link" href="projects.html">프로젝트 전체 보기 →</a>
         </p>

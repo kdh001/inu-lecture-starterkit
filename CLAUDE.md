@@ -29,7 +29,8 @@
 │   └── components.css      # nav · 버튼 · 타일 · 카드 · 푸터 컴포넌트 클래스
 ├── js/
 │   ├── layout.js           # 공통 nav/footer 를 placeholder 에 주입
-│   └── main.js             # 모바일 nav 토글 등 인터랙션 (window.INU)
+│   ├── main.js             # nav 토글 · 테마 · 스크롤 리빌 (window.INU)
+│   └── projects.js         # 프로젝트 데이터(단일 출처) · 카드 렌더 · 상세 모달
 ├── assets/                 # 이미지 등 정적 자산
 ├── .nojekyll               # GitHub Pages Jekyll 처리 비활성화
 ├── DESIGN.md               # 디자인 시스템 (단일 출처)
@@ -41,8 +42,9 @@
 - **홈(`index.html`)** — 원페이지 스크롤. 순서: `Hero(+자기소개) → 대표 프로젝트 3 → 기술 스택/자격증 → 연락처 CTA`.
   - Hero 헤드라인은 "컴퓨터공학 전공 · 전자공학 복수전공"을 담아 간결하게. 자기소개는 별도 페이지 없이 홈에 흡수(about.html 없음).
   - nav 는 섹션 앵커(`#projects`, `#skills`, `#contact`) + `projects.html` 링크.
-- **프로젝트(`projects.html`)** — 전체 갤러리. 카드 + 기술스택 태그 + GitHub 링크. 콘텐츠는 실제 보유 프로젝트 기준.
-- **인터랙션** — 스크롤 리빌(IntersectionObserver `fade-up`) + 기존 테마 토글만. 화려한 효과는 배제(DESIGN.md 절제 원칙).
+- **프로젝트(`projects.html`)** — 전체 갤러리. 카드는 `js/projects.js` 의 `PROJECTS` 배열(단일 출처)에서 렌더되며, 홈 `#featured-grid` 는 앞 3개만.
+  - **카드 클릭 → 상세 모달**: 데스크톱 실제 프로젝트 정보 기반 설명. GitHub 링크는 **공개 저장소만**(비공개는 "비공개 저장소", 로컬은 "로컬 학습 프로젝트" 로 표기). 저장소 공개 여부는 지어내지 말고 실제 확인값을 쓴다.
+- **인터랙션** — 스크롤 리빌(IntersectionObserver `fade-up`) · 테마 토글 · 프로젝트 상세 모달(Esc·백드롭 닫기, 포커스 복원). 그 외 화려한 효과는 배제(DESIGN.md 절제 원칙).
 - 헤더 우측 GitHub 아이콘은 `js/layout.js` 의 `SITE.repoUrl` 로 저장소에 연결.
 
 ## 개발 워크플로우
