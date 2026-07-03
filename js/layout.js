@@ -13,8 +13,8 @@
 // 사이트 메타 — 강의/프로젝트에 맞게 수정하세요.
 // 워드마크는 renderNav 에서 가운뎃점(·)을 시그널 색으로 렌더합니다.
 const SITE = {
-  brandLead: "inu",
-  brandTail: "starter",
+  brandLead: "kim",
+  brandTail: "dohun",
   // 헤더 우측 GitHub 아이콘이 연결될 저장소 주소
   repoUrl: "https://github.com/kdh001/inu-lecture-starterkit",
 };
@@ -25,8 +25,9 @@ const GITHUB_ICON = `<svg class="global-nav__github-icon" viewBox="0 0 16 16" wi
 // 네비게이션 항목. href 는 상대경로(앞에 / 없이) — project-site 서브경로 배포 호환.
 const NAV_LINKS = [
   { href: "index.html", label: "Home" },
-  { href: "about.html", label: "About" },
-  { href: "components.html", label: "Components" },
+  { href: "projects.html", label: "Projects" },
+  { href: "index.html#skills", label: "Skills" },
+  { href: "index.html#contact", label: "Contact" },
 ];
 
 const FOOTER_COLUMNS = [
@@ -34,8 +35,8 @@ const FOOTER_COLUMNS = [
     heading: "프로젝트",
     links: [
       { href: "index.html", label: "홈" },
-      { href: "about.html", label: "소개" },
-      { href: "components.html", label: "컴포넌트" },
+      { href: "projects.html", label: "프로젝트" },
+      { href: "index.html#contact", label: "연락처" },
     ],
   },
   {
@@ -47,7 +48,7 @@ const FOOTER_COLUMNS = [
   },
 ];
 
-/** 현재 페이지 파일명 (예: "about.html"). 루트("/")는 index.html 로 간주. */
+/** 현재 페이지 파일명 (예: "projects.html"). 루트("/")는 index.html 로 간주. */
 function currentPage() {
   const path = window.location.pathname.split("/").pop();
   return path && path.length ? path : "index.html";
