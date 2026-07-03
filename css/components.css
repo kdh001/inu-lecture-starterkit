@@ -472,3 +472,76 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+ * 10. Portfolio — sections, tags, reveal
+ * ============================================================ */
+
+/* 홈 섹션 공통 컨테이너 */
+.pf-section {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-block: var(--space-12);
+  padding-inline: var(--space-4);
+}
+.pf-section__eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+/* 소개 블록 — hero 아래 흡수 (72ch 읽기 폭) */
+.pf-intro {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-block: var(--space-12);
+  padding-inline: var(--space-4);
+}
+
+/* 연락처 CTA 밴드 */
+.pf-cta {
+  text-align: center;
+  padding-block: var(--space-12);
+  padding-inline: var(--space-4);
+  border-top: var(--hairline-w) solid var(--color-hairline);
+}
+.pf-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* 비인터랙티브 태그 pill (기술스택/자격증) */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  background-color: var(--color-surface-2);
+  border: var(--hairline-w) solid var(--color-hairline);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+/* 스크롤 리빌 : fade-up */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
